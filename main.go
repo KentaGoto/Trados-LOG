@@ -53,16 +53,23 @@ func main() {
 		resultFile := tFormat + ".html"
 		resultFile = "results\\" + resultFile
 
+		// XSLTパーサーにかける
 		_, err = exec.Command("msxsl.exe", dst, "Trados_LOG _2019_chara_word.xsl", "-o", resultFile).CombinedOutput()
 		if err != nil {
 			fmt.Println("Command Exec Error")
 		}
 
-		// index.tmplを書き換えて、HTMLからダウンロードさせる
+		// Pythonで整形してエクセルに入力
+		_, err = exec.Command("Trados-log-shaping.exe", resultFile, tFormat).CombinedOutput()
+		if err != nil {
+			fmt.Println("Command Exec Error")
+		}
+
+		// index.tmplを書き換えて、xlsxをダウンロードさせる
 		c.HTML(http.StatusOK, "html/index.tmpl", gin.H{
 			"title":           "Trados Log",
-			"downloadMessage": "Please download the html file or right-click to open the link: ",
-			"downloadfile":    tFormat + ".html",
+			"downloadMessage": "Please download the xslx file or right-click to open the link: ",
+			"downloadfile":    tFormat + "_log.xlsx",
 		})
 
 	})
