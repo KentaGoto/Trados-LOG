@@ -1,1 +1,1 @@
-"# Trados-LOG" 
+# Trados-LOG 
