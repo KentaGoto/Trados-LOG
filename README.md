@@ -1,7 +1,10 @@
 # Trados-LOG 
 
-# Author
-Kenta Goto
+## Overview
+in preparation...
 
-# License
+## License
 MIT
+
+## Author
+Kenta Goto
