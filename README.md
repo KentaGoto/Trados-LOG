@@ -8,7 +8,7 @@ Generate an Excel sheet from the Trados translation analysis log (*.xml), broken
 - Python3
 - Excel
 - Put msxsl.exe in the same location.  
-    \* msxsl.exe may not be distributed officially anymore.
+    \* **msxsl.exe** may not be distributed officially anymore.
 
 ## License
 MIT
