@@ -22,7 +22,6 @@ def inputExcel(countStr, count, ws, s):
         if type(s) == str:
             if s == "":
                 s_zero = "0"
-<<<<<<< HEAD
                 print('crossfileRep -> ' + s_zero)
                 e = 'E' + countStr
                 ws[e].value = int(s_zero)
@@ -30,15 +29,6 @@ def inputExcel(countStr, count, ws, s):
                 print('crossfileRep -> ' + s)
                 e = 'E' + countStr
                 ws[e].value = int(s)
-=======
-                print('contextMatchRate -> ' + s_zero)
-                e = 'E' + countStr
-                ws[e].value = int(s_zero)
-        else:
-            print('contextMatchRate -> ' + s)
-            e = 'E' + countStr
-            ws[e].value = int(s)
->>>>>>> 453a2a715eeca5fe79e97b943965660804f61d86
     elif count == 6:
         f = 'F' + countStr
         ws[f].value = int(s)
