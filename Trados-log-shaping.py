@@ -23,11 +23,9 @@ def inputExcel(countStr, count, ws, s):
         if type(s) == str:
             if s == "":
                 s_zero = "0"
-                print('crossfileRep -> ' + s_zero)
                 e = 'E' + countStr
                 ws[e].value = int(s_zero)
             else:
-                print('crossfileRep -> ' + s)
                 e = 'E' + countStr
                 ws[e].value = int(s)
     elif count == 6:
