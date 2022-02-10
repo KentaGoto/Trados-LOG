@@ -1,7 +1,5 @@
 import bs4
 import openpyxl
-from openpyxl.styles import Border, Side
-import datetime
 import shutil
 import sys
 
@@ -21,8 +19,15 @@ def inputExcel(countStr, count, ws, s):
         d = 'D' + countStr
         ws[d].value = int(s)
     elif count == 5:
-        e = 'E' + countStr
-        ws[e].value = int(s)
+        # 処理対象のHTMLでCross File Repに空文字がある場合に対応
+        if type(s) == str:
+            if s == "":
+                s_zero = "0"
+                e = 'E' + countStr
+                ws[e].value = int(s_zero)
+            else:
+                e = 'E' + countStr
+                ws[e].value = int(s)
     elif count == 6:
         f = 'F' + countStr
         ws[f].value = int(s)
@@ -98,19 +103,6 @@ if __name__ == '__main__':
 
         countT += 1 # エクセルの入力行
     
-    side = Side(style="thin", color="000000") # セルの線
-    countT = countT - 1
-
-    # セルの線を付ける
-    for row in ws["A3":"M" + str(countT)]:
-        for cell in row:
-            cell.border = Border(left=side, right=side, top=side, bottom=side)
-    
-    for row in ws2["A3":"M" + str(countT)]:
-        for cell in row:
-            cell.border = Border(left=side, right=side, top=side, bottom=side)
-
-
     # Excelを閉じて保存
     wb.close()
     wb.save(resultsFile)
