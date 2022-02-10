@@ -68,7 +68,7 @@ func main() {
 		// index.tmplを書き換えて、xlsxをダウンロードさせる
 		c.HTML(http.StatusOK, "html/index.tmpl", gin.H{
 			"title":           "Trados Log",
-			"downloadMessage": "Please download the xslx file or right-click to open the link: ",
+			"downloadMessage": "Download: ",
 			"downloadfile":    tFormat + "_log.xlsx",
 		})
 
